@@ -1,4 +1,4 @@
-#ROCK PAPER SCISSORS
+<h1>ROCK PAPER SCISSORS</h1>
 
 A simple multiplayer Rock Paper Scissors game built using Django
 <br>
