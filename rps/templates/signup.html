@@ -1,0 +1,65 @@
+{% extends 'bases/base.html' %}{% block content %} {% load static %}{% load form_tags %}
+
+
+{% if user.is_authenticated %}
+
+<script>
+  window.location = 'http://' + window.location.host + '/';
+</script>
+  
+{% endif %}
+
+{% if signup_err %}
+
+<div style="display: none;">
+  {{ form_err }}
+</div>
+
+<script>
+  let err = document.getElementsByClassName("errorlist")[1];
+  let mess= err.childNodes[0].innerHTML;
+  alert(mess);
+  window.location = 'http://' + window.location.host + '/signup';
+</script>
+
+
+{% elif success %}
+  <script>
+    alert("User added successfully!!")
+    window.location = 'http://' + window.location.host + '/';
+  </script>
+
+{% else %}
+<h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
+<div class="container my-5" >
+  <form id="signup-form" method="post" action="/signup">
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="username" class="form-label">{{ form.username.label }}</label>
+      {{ form.username|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">{{ form.password1.label }}</label>
+      {{ form.password1|add_class:"form-control" }}
+    </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">{{ form.password2.label }}</label>
+      {{ form.password2|add_class:"form-control" }}
+    </div>
+
+    <div class="mb3">
+        <input type="checkbox" name="showpass" id="showpass">
+        <label for="showpass">Show Password</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div class="my-5">
+    <a href="/login">Login Instead?</a>
+  </div>
+</div>
+{% endif %}
+  <script src="{% static 'js/signup.js' %}"></script>
+  {% endblock content %}

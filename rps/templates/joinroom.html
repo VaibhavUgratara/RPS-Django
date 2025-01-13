@@ -1,0 +1,25 @@
+{% extends 'bases/base.html' %}
+{% block content %}
+
+
+{% if error %}
+    <script>
+        alert("Room ID invalid!!");
+    </script>
+{% endif %}
+
+<h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
+<div class="p-3 d-flex justify-content-center align-items-center" style="height: 200px;">
+    <form action="/join" method="post" >
+        {% csrf_token %}
+        <div class="mb-3 w-100 d-flex justify-content-center">
+            <input type="text" name="room_id" id="room_id" placeholder="Enter Room ID..." autocomplete="off">
+        </div>
+        <div class="mb-3 w-100 d-flex justify-content-center">
+            <input type="submit" class="btn btn-outline-primary my-3">
+        </div>
+    </form>
+</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,75 @@
+{% extends 'bases/base.html' %} {% block content %} {% load static %}
+
+  <div class="modal" tabindex="-1" id="myModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">RPS</h5>
+        </div>
+        <div class="modal-body">
+          <p id="modal-input"></p>
+        </div>
+        <div class="modal-footer d-none" id="restart-btn">
+          <a href="/game?room_ID={{R_ID}}" class="btn btn-outline-primary">Restart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container" id="game">
+  <h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
+  <p class="text-center my-5">Waiting for opponent to join...</p>
+</div>
+
+<div id="gamegame" style="display: none;">
+
+  <div
+  class="container d-flex justify-content-center"
+  id="game-info"
+  style="margin-top: 50px;"
+  data-room_id="{{R_ID}}"
+  >
+  <div class="card p-1" style="width: 35%; margin: 0px 6px" id="Rock">
+    <img src="{% static 'images/rock.png' %}" class="card-img-top" alt="rock" />
+    <div class="card-body">
+      <p class="card-text fs-6" style="text-align: center">Rock</p>
+    </div>
+  </div>
+  
+  <div class="card p-1" style="width: 35%; margin: 0px 6px" id="Paper">
+    <img
+    src="{% static 'images/paper.png' %}"
+    class="card-img-top"
+    alt="paper"
+    />
+    <div class="card-body">
+      <p class="card-text fs-6" style="text-align: center">Paper</p>
+    </div>
+  </div>
+
+  <div class="card p-1" style="width: 35%; margin: 0px 6px" id="Scissors">
+    <img
+      src="{% static 'images/scissors.png' %}"
+      class="card-img-top"
+      alt="scissors"
+      />
+      <div class="card-body">
+        <p class="card-text fs-6" style="text-align: center">Scissors</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="text-center my-3">
+    <div class="spinner-grow" role="status">
+      <span class="visually-hidden">Loading...</span>
+  </div>
+  <p>Waiting for response...</p>
+</div>
+
+<div class="text-center">
+  <p id="timer">Timer : 10</p>
+</div>
+</div>
+
+<script src="{% static 'js/game.js' %}"></script>
+{% endblock content %}

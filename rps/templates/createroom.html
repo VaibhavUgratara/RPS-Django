@@ -1,0 +1,28 @@
+{% extends 'bases/base.html' %}
+{% block content %}
+
+<h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
+<div
+  class="p-3 d-flex justify-content-center align-items-center"
+  style="height: 200px"
+>
+  <div class="p-3 d-flex flex-column">
+    <div
+      style="
+        border: 1px solid black;
+        border-radius: 25px;
+        text-align: center;
+        height: 100px;
+        vertical-align: middle;
+      "
+    >
+      <p style="margin-top: 12%">{{R_ID}}</p>
+    </div>
+    <p class="my-3">Share this Room ID with your opponent!</p>
+    <a type="button" class="btn btn-outline-primary my-3" href="/game?room_ID={{R_ID}}"
+      >Go to waiting area</a
+    >
+  </div>
+</div>
+
+{% endblock content %}

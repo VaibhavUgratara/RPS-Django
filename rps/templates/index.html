@@ -1,0 +1,38 @@
+{% extends 'bases/base.html' %} {% load static %}
+{% block content %}
+
+<h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
+{% if user.is_authenticated %}
+<div
+class="p-3 d-flex justify-content-center align-items-center"
+style="height: 200px"
+>
+<div class="d-flex flex-column w-25">
+  <a type="button" class="btn btn-outline-primary my-3" href="/join"
+      >Join Room</a
+    >
+    <a type="button" class="btn btn-outline-primary my-3" href="/create"
+      >Create Room</a
+    >
+    <a type="button" class="btn btn-outline-primary my-3" href="/logout"
+      >Logout</a
+    >
+  </div>
+</div>
+{% else %}
+<div
+class="p-3 d-flex justify-content-center align-items-center"
+style="height: 200px"
+>
+<div class="d-flex flex-column w-25">
+  <a type="button" class="btn btn-outline-primary my-3" href="/login"
+      >Login</a
+    >
+    <a type="button" class="btn btn-outline-primary my-3" href="/signup"
+      >Signup</a
+    >
+  </div>
+</div>
+{% endif %}
+
+{% endblock content %}
