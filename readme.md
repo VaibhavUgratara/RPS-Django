@@ -26,8 +26,12 @@ A simple multiplayer Rock Paper Scissors game built using Django
 <li><p>First install all packges by running this command:</p>
 <pre>pip install -r requirements.txt</pre>
 </li>
+<li><p>Now locate the <strong>manage.py</strong> file and run the following commands:</p>
+<pre>python manage.py makemigrations</pre>
+<pre>python manage.py migrate</pre>
+</li>
 <li>Now connect the other devices and host (server) with the same network</li>
-<li><p>Now locate the <strong>manage.py</strong> file and run this command:</p>
+<li>Now run this command:</p>
 <pre>python manage.py runserver 0.0.0.0:[port_number]</pre>
 </li>
 <li><p>Now get the IP address of the host device(server) and in the other devices go to the URL:</p>
