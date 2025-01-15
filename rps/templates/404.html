@@ -3,9 +3,10 @@
 {% block content %}
 
 {% load static %}
-    <div class="d-flex flex-column my-5">
+    <div class="d-flex flex-column my-5 align-items-center">
         <h1 class="text-center">Page Not Found!!</h1>
-        <img src="{% static 'images/404.png' %}" alt="404" class="mx-auto w-25">
-        <a href="/" class="btn btn-outline-primary mx-auto p-3">Home</a>
+        <img src="{% static 'images/404.png' %}" alt="404" class="img-fluid w-25">
+        <a href="/" class="btn btn-outline-primary mt-4 p-3">Home</a>
     </div>
+
 {% endblock content %}

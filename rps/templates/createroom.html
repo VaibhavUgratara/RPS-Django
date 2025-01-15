@@ -1,28 +1,51 @@
 {% extends 'bases/base.html' %}
 {% block content %}
 
-<h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
-<div
-  class="p-3 d-flex justify-content-center align-items-center"
-  style="height: 200px"
->
-  <div class="p-3 d-flex flex-column">
-    <div
-      style="
-        border: 1px solid black;
-        border-radius: 25px;
-        text-align: center;
-        height: 100px;
-        vertical-align: middle;
-      "
-    >
-      <p style="margin-top: 12%">{{R_ID}}</p>
+<h1 class="text-center my-5">Rock Paper Scissors</h1>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+  <div class="p-4 d-flex flex-column align-items-center border rounded shadow-sm" style="max-width: 400px; background-color: #f8f9fa;">
+    
+    <!-- Room ID Card -->
+    <div class="p-3 mb-4 w-100 text-center" style="border: 2px solid #007bff; border-radius: 15px; background-color: #ffffff;">
+      <p style="font-size: 1.5rem; font-weight: bold; color: #007bff;">Room ID</p>
+      <p id="room-id" style="font-size: 2rem; font-weight: bold; color: #333;">{{ R_ID }}</p>
     </div>
-    <p class="my-3">Share this Room ID with your opponent!</p>
-    <a type="button" class="btn btn-outline-primary my-3" href="/game?room_ID={{R_ID}}"
-      >Go to waiting area</a
-    >
+
+    <!-- Copy Room ID Button -->
+    <button id="copy-button" class="btn btn-outline-secondary my-3" onclick="copyRoomID()">Copy Room ID</button>
+
+    <!-- Instruction Text -->
+    <p class="my-3 text-center" style="font-size: 1.2rem;">Share this Room ID with your opponent!</p>
+
+    <!-- Go to Waiting Area Button -->
+    <a type="button" class="btn btn-outline-primary w-100" href="/game?room_ID={{ R_ID }}">Go to Waiting Area</a>
   </div>
 </div>
+
+<script>
+  // Function to copy the Room ID to clipboard
+  function copyRoomID() {
+    // Get the Room ID element
+    var roomID = document.getElementById("room-id").textContent;
+    
+    // Create a temporary text area to copy the text to clipboard
+    var tempTextArea = document.createElement("textarea");
+    tempTextArea.value = roomID;
+    document.body.appendChild(tempTextArea);
+    tempTextArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempTextArea);
+    
+    // Change the button text to confirm the action
+    var copyButton = document.getElementById("copy-button");
+    copyButton.textContent = "Copied!";
+    
+    // Reset the button text back after 2 seconds
+    setTimeout(function() {
+      copyButton.textContent = "Copy Room ID";
+    }, 2000);
+  }
+</script>
 
 {% endblock content %}

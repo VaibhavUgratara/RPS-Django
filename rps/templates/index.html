@@ -1,36 +1,34 @@
 {% extends 'bases/base.html' %} {% load static %}
 {% block content %}
 
-<h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
+<!-- Page Title -->
+<h1 class="text-center my-5" style="font-family: 'IBM Plex Mono', monospace;">ROCK PAPER SCISSORS</h1>
+
 {% if user.is_authenticated %}
-<div
-class="p-3 d-flex justify-content-center align-items-center"
-style="height: 200px"
->
-<div class="d-flex flex-column w-25">
-  <a type="button" class="btn btn-outline-primary my-3" href="/join"
-      >Join Room</a
-    >
-    <a type="button" class="btn btn-outline-primary my-3" href="/create"
-      >Create Room</a
-    >
-    <a type="button" class="btn btn-outline-primary my-3" href="/logout"
-      >Logout</a
-    >
+<!-- Authenticated User Options -->
+<div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+  <div class="d-flex flex-wrap justify-content-center gap-3 w-75">
+    <a class="card p-3 text-center text-decoration-none" href="/join" style="width: 12rem;">
+      <h5>Join Room</h5>
+    </a>
+    <a class="card p-3 text-center text-decoration-none" href="/create" style="width: 12rem;">
+      <h5>Create Room</h5>
+    </a>
+    <a class="card p-3 text-center text-decoration-none" href="/logout" style="width: 12rem; background-color: #ffcccc; border-color: black;">
+      <h5 style="color: black;">Logout</h5>
+    </a>
   </div>
 </div>
 {% else %}
-<div
-class="p-3 d-flex justify-content-center align-items-center"
-style="height: 200px"
->
-<div class="d-flex flex-column w-25">
-  <a type="button" class="btn btn-outline-primary my-3" href="/login"
-      >Login</a
-    >
-    <a type="button" class="btn btn-outline-primary my-3" href="/signup"
-      >Signup</a
-    >
+<!-- Guest User Options -->
+<div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+  <div class="d-flex flex-wrap justify-content-center gap-3 w-75">
+    <a class="card p-3 text-center text-decoration-none" href="/login" style="width: 12rem;">
+      <h5>Login</h5>
+    </a>
+    <a class="card p-3 text-center text-decoration-none" href="/signup" style="width: 12rem;">
+      <h5>Signup</h5>
+    </a>
   </div>
 </div>
 {% endif %}

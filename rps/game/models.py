@@ -1,4 +1,5 @@
 from django.db import models
+import django, os
 
 # Create your models here.
 class GameRoomInfo(models.Model):

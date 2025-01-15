@@ -1,25 +1,30 @@
 {% extends 'bases/base.html' %}
 {% block content %}
 
-
 {% if error %}
     <script>
         alert("Room ID invalid!!");
     </script>
 {% endif %}
 
-<h1 class="text-center my-5">ROCK PAPER SCISSORS</h1>
-<div class="p-3 d-flex justify-content-center align-items-center" style="height: 200px;">
-    <form action="/join" method="post" >
-        {% csrf_token %}
-        <div class="mb-3 w-100 d-flex justify-content-center">
-            <input type="text" name="room_id" id="room_id" placeholder="Enter Room ID..." autocomplete="off">
+<h1 class="text-center my-5" style="font-family: 'IBM Plex Mono', monospace;">ROCK PAPER SCISSORS</h1>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 300px;">
+    <div class="card p-4 shadow" style="width: 25rem; border: 2px solid black;">
+        <form action="/join" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="room_id" class="form-label" style="font-weight: bold;">Enter Room ID</label>
+                <input type="text" name="room_id" id="room_id" class="form-control" placeholder="Enter Room ID..." autocomplete="off" style="border: 2px solid black;">
+            </div>
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-dark w-100" style="font-weight: bold;">Join Room</button>
+            </div>
+        </form>
+        <div class="text-center">
+            <a href="/" class="btn btn-outline-secondary w-100" style="font-weight: bold;">Go Back</a>
         </div>
-        <div class="mb-3 w-100 d-flex justify-content-center">
-            <input type="submit" class="btn btn-outline-primary my-3">
-        </div>
-    </form>
-</div>
+    </div>
 </div>
 
 {% endblock content %}

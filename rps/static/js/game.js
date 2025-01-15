@@ -36,6 +36,7 @@ let timer_display=setInterval(()=>{
 document.querySelectorAll(".card").forEach((card) => {
   card.addEventListener("click", () => {
     choice = card.getAttribute("id");
+    console.log(choice);
     let info={
       "choice" : choice,
     }
